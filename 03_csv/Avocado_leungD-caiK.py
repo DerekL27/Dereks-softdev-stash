@@ -1,3 +1,8 @@
+#Derek Leung
+#SoftDev1 pd9
+#K#06 -- Csv reader and random occupation generator
+# 2019 09-14
+
 import csv
 import random;
 occupations = {}
