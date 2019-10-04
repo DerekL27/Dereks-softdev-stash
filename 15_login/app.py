@@ -52,6 +52,12 @@ def something5():
         return render_template("welcome.html",username=username)
     return render_template("login.html", uMatch=userPassed, pMatch=passPassed)
 
+@app.route("/auth2")
+def something6():
+    session.pop('username')
+    session.pop('password')
+    return redirect("/")
+
 if __name__ == "__main__":
     app.debug = True;
     app.run()
