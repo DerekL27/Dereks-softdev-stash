@@ -1,0 +1,44 @@
+body {
+  background-color:gray;
+  font-family:sans-serif;
+}
+
+h1 {
+  text-align:center;
+  color:white;
+  background-color:#BEBEBE;
+}
+
+table {
+  background-color:gray;
+}
+
+td {
+  vertical-align:top;
+  width:85%;
+}
+
+#nav {
+  width:15%;
+  vertical-aligh:top;
+}
+
+li {
+  text-decoration: none;
+  color: white;
+}
+
+
+ul {
+  list-style-type:none;
+  padding-left:0;
+}
+
+a {
+  text-decoration:none;
+  color:white;
+}
+
+div {
+"background-color:#565656; padding: 15px; text-align: right; color: #747673; margin: 0px"
+}
