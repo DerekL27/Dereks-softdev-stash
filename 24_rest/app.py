@@ -4,12 +4,16 @@
 #2019-11-13
 
 from flask import *
-import json 
+import urllib.request as urllib2
+import json
 
 app = Flask(__name__)
 @app.route("/")
 def something():
-    return render_template('bruh.html')
+    thing = urllib2.urlopen("https://api.nasa.gov/planetary/apod?api_key=aSE5zbVk8IZbPt51EYgzq2itWhMyusUCKlu4KfQc")
+    thing2 = thing.read()
+    thing3 = json.loads(thing2)
+    return render_template('bruh.html', picture = thing3['url'], words = thing3['explanation'])
 
 
 if __name__ == "__main__":
