@@ -7,67 +7,60 @@
 //b.addEventListener('click', function(e) { console.log(e) });
 
 var changeHeading = function(e) { // e is an event
-  var h = document.getElementById("h");
-  if (e.type == 'mouseover') {
-    h.innerHTML = e.target.innerHTML;
+  var h = document.getElementById("h");//select heading
+  if (e.type == 'mouseover') {//is the mouse on something?
+    h.innerHTML = e.target.innerHTML; //if yes, change heading to the text of the thing the mouse is on
   } else {
-    h.innerHTML = "Hello World!";
+    h.innerHTML = "Hello World!"; //if the mouse isn't on anything, heading is Hello World
   }
 };
 
 var removeItem = function(e) {
-  e.target.remove();
+  e.target.remove(); //remove the thing that the mouse is on
 };
 
 var lis = document.getElementsByTagName("li");
 
-for (var i = 0; i < lis.length; i++) {
+for (var i = 0; i < lis.length; i++) { //adds event listeners to all the list items
   lis[i].addEventListener('mouseover', changeHeading);
   lis[i].addEventListener('mouseout', changeHeading);
   lis[i].addEventListener('click', removeItem);
 };
 
-var addItem = function(e) {
+var addItem = function(e) { //add function for first list
   var list = document.getElementById("thelist");
-  var item = document.createElement("li");
+  var item = document.createElement("li"); //create new thing to be in big list
   item.innerHTML = "WORD";
+  //adding all the event listeners
   item.addEventListener('mouseover', changeHeading);
   item.addEventListener('mouseout', changeHeading);
   item.addEventListener('click', removeItem);
   list.appendChild(item);
 };
 
-var button = document.getElementById("b");
+var button = document.getElementById("b"); //fibonacci button
 button.addEventListener('click', addItem);
 
-var fib = function(n) {
-  if (n < 2) {
-    return 1;
-  } else {
-    return fib(n-1) + fib(n-2);
+var fibs = {
+  nums: [],
+  add: function() {
+    var ans;
+    if (this.nums.length < 2) { // if the length is less than 2, the statement in else won't work
+      ans = 1;
+    } else { // append the next fibonacci number into the list
+      ans = this.nums[this.nums.length - 1] + this.nums[this.nums.length - 2];
+    }
+    this.nums.push(ans);
+    return ans;
   }
-};
-
-var fibNums = [];
+}
 
 var addFib = function(e) {
   console.log(e);
-  var list = document.getElementById("fiblist");
-  var item = document.createElement("li");
-  item.innerHTML = addFib2(e);
-  list.appendChild(item);
-};
-
-var addFib2 = function(e) {
-  console.log(e);
-  var ans;
-  if (fibNums.length < 2) { // if the length is less than 2, the statement in else won't work
-    ans = fib(fibNums.length);
-  } else { // append the next fibonacci number into the list
-    ans = fibNums[fibNums.length - 1] + fibNums[fibNums.length - 2];
-  }
-  fibNums.push(ans);
-  return ans;
+  var list = document.getElementById("fiblist"); //selects the list element in the html
+  var item = document.createElement("li"); //creats another thing in the list
+  item.innerHTML = fibs.add(); //adds new number inside list thing
+  list.appendChild(item); //adds list thing to big list
 };
 
 var fb = document.getElementById("fb");
