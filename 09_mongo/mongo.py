@@ -1,4 +1,4 @@
-from bson import json_util
+from bson.json_util import loads
 from pymongo import MongoClient
 client = MongoClient()
 db = client.test
