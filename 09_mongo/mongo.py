@@ -4,13 +4,11 @@ client = MongoClient()
 db = client.test
 collection = db.restaurants
 if(collection.count() == 0):
-	file = open('primer-dataset.json','r')
-	bruh = file.readlines()
+    file = open('primer-dataset.json','r')
+    bruh = file.readlines()
 	for line in bruh:
-		collection.insert_one(loads(line))
+        collection.insert_one(loads(line))
 
 def getBorough(borough):
-	bruh = collection.find({"borough": borough})
-	print(bruh)
-
-getBorough("Bronx")
+    bruh = collection.find({"borough": borough})
+    print(bruh)
