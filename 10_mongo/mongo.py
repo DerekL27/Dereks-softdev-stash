@@ -19,13 +19,13 @@ if(collection.count() == 0):
     file = open("prize.json", "r")
     content = file.readlines()
     for line in content:
-        collection.insert_one(loads(line))
+        collection.insert_one(json.loads(line))
 
 def findTopic(topic):
     topic = topic.lower()
     data = collection.find({"prizes.category": topic})
     for thing in data:
-        print(data)
+        print(thing)
         print('\n')
 
 def findYear(year):
