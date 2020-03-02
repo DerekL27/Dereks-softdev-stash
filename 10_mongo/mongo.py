@@ -23,7 +23,14 @@ if(collection.count() == 0):
 
 def findTopic(topic):
     topic = topic.lower()
-    data = collection.find({"category": topic})
+    data = collection.find({"prizes.category": topic})
+    for thing in data:
+        print(data)
+        print('\n')
+
+def findYear(year):
+    topic = topic.lower()
+    data = collection.find({"prizes.year": year})
     for thing in data:
         print(data)
         print('\n')
