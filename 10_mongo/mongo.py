@@ -10,4 +10,9 @@ client = MongoClient()
 db = client.teamName
 collection = db.events
 if(collection.count() == 0):
-    pass
+    file = open("englishEvents.json", "r")
+    content = file.readlines()
+    for line in content:
+        collection.insert_one(loads(line))
+
+def findBetweenYears()
