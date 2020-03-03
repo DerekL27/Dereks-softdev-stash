@@ -51,11 +51,11 @@ def findTopic(topic):
     # print(data)
     for thing in data:
         for item in thing:
-            if (item != "laureates"):
+            if (item != "laureates" and item!="_id"):
                 print("{} : {}".format(item, thing[item]))
-            else:
+            elif(item!="_id"):
                 for piece in thing[item]:
-                    print("{} : {}".format(piece, thing[item][piece]))
+                    print("{}".format(thing[item][piece]))
         print("\n")
 
 def findYear(year):
