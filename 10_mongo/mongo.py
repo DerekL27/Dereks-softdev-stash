@@ -66,11 +66,14 @@ def findYear(year):
     # print(data[0])
     for thing in data:
         for item in thing:
-            if (item != "laureates"):
+            if (item != "laureates" and item!="_id"):
                 print("{} : {}".format(item, thing[item]))
-            else:
+            elif(item!="_id"):
                 for piece in thing[item]:
-                    print("{} : {}".format(piece, thing[item][piece]))
+                   # print(thing[item][piece])
+                    infoDict = thing[item][piece]
+                    print("name: " + infoDict['firstname'])
+                    print("reason: " + infoDict[u'motivation'])
         print("\n")
 
 # findTopic("chemistry")
