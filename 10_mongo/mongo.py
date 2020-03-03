@@ -55,7 +55,10 @@ def findTopic(topic):
                 print("{} : {}".format(item, thing[item]))
             elif(item!="_id"):
                 for piece in thing[item]:
-                    print("{}".format(thing[item][piece]))
+                   # print(thing[item][piece])
+                    infoDict = thing[item][piece]
+                    print("name: " + infoDict['firstname'])
+                    print("reason: " + infoDict[u'motivation'])
         print("\n")
 
 def findYear(year):
@@ -71,4 +74,4 @@ def findYear(year):
         print("\n")
 
 # findTopic("chemistry")
-findTopic("chemistry")
+findTopic("medicine")
