@@ -76,5 +76,5 @@ def findYear(year):
                     print("reason: " + infoDict[u'motivation'])
         print("\n")
 
-# findTopic("chemistry")
-findTopic("medicine")
+findTopic("chemistry")
+#findYear("1945")
