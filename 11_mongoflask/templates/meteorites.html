@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Dataset stuff boi</title>
+  </head>
+  <body>
+    <h3>Joseph and Derek</h3>
+    <p>Thomas Ghita</p>
+    <br>
+    <form target="/meteorites" name="meteorites" method="GET">
+      <select id="field" name="field">
+        <option value="name">Name</option>
+        <option value="mass">Mass</option>
+        <option value="year">Year</option>
+        <option value="coordinates">Coordinates</option>
+      </select>
+      
+      <input type="text" id="query" name="query"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    {% if data %}
+    {% for member in data %}
+    <div>
+      <h3>{{member['name']}}</h3>
+      <h5>Mass: {{member['mass']}} tonnes</h5>
+      <h5>Year: {{member['year']}}</h5>
+      <h5>Lattitude: {{member['reclat']}}</h5>
+      <h5>Longitude: {{member['reclong']}}</h5>      
+      <hr/>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+  <footer>NOTE: for coordinates, please input in the form &lt;latitude,longitude&gt;</footer>
+</html>
