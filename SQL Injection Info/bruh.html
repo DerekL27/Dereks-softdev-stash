@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SQL Injection</title>
+  </head>
+  <body>
+    <h1>SQL Injection</h1><br>
+    <h3>What is SQL Injection?</h3>
+    <ul>
+      <li>SQL Injection is a code injection technique to run malicious SQL statments on a website using an sql database</li>
+      <li>It is usually used to attack login/register pages but can be used to attack anything that connects to a database</li>
+      <li>It can be used to alter, add, or delete code in a database if the database isn't protected</li>
+    </ul>
+    <h3>How does SQL Injection Work?</h3>
+    <p>Normally, if you saw this, you would think to enter your username and password:</p>
+    <form>
+      <label for="username">Username:</label><br>
+      <input type="text" id="user" name="user"><br>
+      <label for="lname">Password:</label><br>
+      <input type="password" id="pass" name="pass"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <p>However, a hacker who knows that the code looks something like the following can use that to their advantage:</p>
+    <pre>
+    <code>
+        arg = request.args["user"]
+        cmd = 'SELECT * FROM userdata WHERE user =' + arg
+        cursor.execute(cmd)
+    </code>
+    </pre>
+    If they were to input into the username field: <code>"" OR 1=1</code><br><br>
+    The command would be appended to the end of the statement so that it would look like:
+    <pre>      <code>SELECT * FROM userdata WHERE user = "" OR 1=1</code></pre>
+    And since 1=1 is always true, the cursor would select all the rows in the database<br>
+    <h3>How do you protect against SQL Injection?</h3>
+    <ul>
+      <li>You can use SQL Parameters, which are added to the statement at execution time, so that malicious statement is considered a parameter, and not appended to the end of the statement.</li>
+      <li>So, the previous example would look like:
+        <pre>
+    <code>c.execute('SELECT * FROM userdata WHERE user = (?)', (request.args["username"],))</code></li>
+        </pre>
+    </ul>
+  </body>
+</html>
