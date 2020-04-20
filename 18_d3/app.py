@@ -20,7 +20,7 @@ def main():
     info = list(csvfile.values()) #put all the information into a list
     #print(schools)
     #print("SDL:SDJKFLSDJFIJSEOSE:LIEJ:LIEFJS:ILEFJ")
-    #print(info)
+    print(info)
     return render_template('home.html', info=info, names=schools)
 
 if __name__ == "__main__":

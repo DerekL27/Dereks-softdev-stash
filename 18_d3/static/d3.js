@@ -11,9 +11,10 @@ var render = function(e){
   d3.select("body").selectAll("p").remove();
   var numstudents = []
   var i;
-  for(i=0; i < data.length; i++){
-    numstudents.push(data[i][iter]);
+  for(i=0; i < data[iter].length; i++){
+    numstudents.push(data[iter][i]);
   };
+  console.log(numstudents)
   var school = []
   school.push(names[iter])
   console.log(school)
@@ -21,14 +22,14 @@ var render = function(e){
   var container = d3.select("body")
     .append("table")
     .selectAll("th")
-      .data(["score1", "score2", "score3","score4"]).enter()
+      .data(["Number of test takers", "Critical Reading Mean", "Mathematics Mean","Writing Mean"]).enter()
       .append("th")
         .text(function(d) {return d})
   var bruh = d3.select("table")
     .selectAll("tr")
-      .data(numstudents).enter()
+      .data(" ").enter()
       .append("tr")
-      .text(function(d) {return d})
+        .text(function(d) {return d})
     .selectAll("td")
       .data(numstudents).enter()
       .append("td")
